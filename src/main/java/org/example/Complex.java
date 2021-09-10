@@ -13,17 +13,17 @@ public final class Complex implements Comparable<Complex> {
         this.modulus = findModulus(realPart, imaginaryPart);
     }
 
-    public Complex add(Complex firstNumber, Complex secondNumber) {
+    public static Complex add(Complex firstNumber, Complex secondNumber) {
         return new Complex(firstNumber.getRealPart() + secondNumber.getRealPart(),
                 firstNumber.getImaginaryPart() + secondNumber.getImaginaryPart());
     }
 
-    public Complex subtract(Complex firstNumber, Complex secondNumber) {
+    public static Complex subtract(Complex firstNumber, Complex secondNumber) {
         return new Complex(firstNumber.getRealPart() - secondNumber.getRealPart(),
                 firstNumber.getImaginaryPart() - secondNumber.getImaginaryPart());
     }
 
-    public Complex multiply(Complex firstNumber, Complex secondNumber) {
+    public static Complex multiply(Complex firstNumber, Complex secondNumber) {
         double newRealPart = firstNumber.getRealPart() * secondNumber.getRealPart() -
                 firstNumber.getImaginaryPart() * secondNumber.getImaginaryPart();
         double newImaginaryPart = firstNumber.getRealPart() * secondNumber.getImaginaryPart() +
@@ -31,15 +31,15 @@ public final class Complex implements Comparable<Complex> {
         return new Complex(newRealPart, newImaginaryPart);
     }
 
-    public Complex multiply(Complex firstNumber, double secondNumber) {
+    public static Complex multiply(Complex firstNumber, double secondNumber) {
         return multiply(firstNumber, new Complex(secondNumber, 0));
     }
 
-    public Complex multiply(double firstNumber, Complex secondNumber) {
+    public static Complex multiply(double firstNumber, Complex secondNumber) {
         return multiply(secondNumber, firstNumber);
     }
 
-    public Complex divide(Complex firstNumber, Complex secondNumber) {
+    public static Complex divide(Complex firstNumber, Complex secondNumber) {
         double denominator = Math.pow(secondNumber.getModulus(), 2);
         if (denominator == 0)
             throw new ArithmeticException("Division by zero");
@@ -50,11 +50,11 @@ public final class Complex implements Comparable<Complex> {
         return new Complex(newRealPart, newImaginaryPart);
     }
 
-    public Complex divide(Complex firstNumber, double secondNumber) {
+    public static Complex divide(Complex firstNumber, double secondNumber) {
         return divide(firstNumber, new Complex(secondNumber, 0));
     }
 
-    public Complex divide(double firstNumber, Complex secondNumber) {
+    public static Complex divide(double firstNumber, Complex secondNumber) {
         return divide(secondNumber, firstNumber);
     }
 
