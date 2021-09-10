@@ -58,8 +58,8 @@ public class ComplexTest {
             (3 + 4i) / (2 + 5i) = 26/29 - 7i/29
         */
         Complex additionResult = Complex.divide(firstNumber, secondNumber);
-        assertEquals(((double) 26)/29, additionResult.getRealPart(), DELTA);
-        assertEquals(((double) -7)/29, additionResult.getImaginaryPart(), DELTA);
+        assertEquals(26.0/29.0, additionResult.getRealPart(), DELTA);
+        assertEquals(-7.0/29.0, additionResult.getImaginaryPart(), DELTA);
     }
 
     @Test(expected = ArithmeticException.class)
